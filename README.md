@@ -11,3 +11,5 @@ It loads from static array. To get this initializtion array you need to have a f
 ``` ./init_microramfs <DIRNAME>``` where ```DIRNAME``` is path to folder where microramfs data is stored. This will convert all files and directories in ```DIRNAME``` into microramfs initialization array.
 # Output
 On output you will get byte array and it's size. 
+# Known issues 
+There is a comma before closing curly bracket. (#1)
