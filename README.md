@@ -12,4 +12,4 @@ It loads from static array. To get this initializtion array you need to have a f
 # Output
 On output you will get byte array and it's size. 
 # Known issues 
-There is a comma before closing curly bracket. (#1)
+There is a comma before closing curly bracket. Issue #1
