@@ -155,58 +155,7 @@ int main(int argc, const char * argv[]) {
     }
     chdir(argv[1]);
     printf("{");
-    listdir("./");
+    listdir("./ramfs");
     printf("}\nTotal size: %llu bytes\nFiles count: %llu\n Dirs count:%llu\n",gsz,files,dirs);
-    /*size_t i=0;
-    while (i<initramfs_sz) {
-        if(init_img[i]==CMD_FILE){
-            ++i;
-            uint8_t *name=NULL;
-            uint8_t *content=NULL;
-            uint64_t name_size=0;
-            memcpy(&name_size, init_img+i, sizeof(uint64_t));
-            printf("Name size: %llu\n",name_size);
-            name=(uint8_t *)malloc(name_size*sizeof(uint8_t));
-            i+=sizeof(uint64_t);
-            memcpy((uint8_t *)name, init_img+i, name_size*sizeof(uint8_t));
-            i+=name_size;
-            uint64_t file_size=0;
-            memcpy(&file_size, init_img+i, sizeof(uint64_t));
-            printf("File size: %llu\n",file_size);
-            i+=sizeof(uint64_t);
-            content=(uint8_t *)malloc((file_size+1)*sizeof(uint8_t));
-            memcpy((uint8_t *)content, init_img+i, file_size*sizeof(uint8_t));
-            content[file_size]=0;
-            printf("%s\n---\n%s\n",name,content);
-            i+=file_size;
-        }else if(init_img[i]==CMD_DIR){
-            ++i;
-            uint8_t *name=NULL;
-            uint64_t name_size=0;
-            memcpy(&name_size, init_img+i, sizeof(uint64_t));
-            printf("Dir name size: %llu\n",name_size);
-            name=(uint8_t *)malloc(name_size*sizeof(uint8_t));
-            i+=sizeof(uint64_t);
-            //++i;
-            memcpy((uint8_t *)name, init_img+i, name_size*sizeof(uint8_t));
-            printf("Dir name: %s\n",(char*)name);
-            i+=name_size-1;
-            size_t j=strlen((char *)name);
-            while(j>0){
-                j--;
-                if(name[j]=='/'){
-                    break;
-                }
-            }
-            char *dirname=(char *)malloc(sizeof(char)*(strlen((char *)name)-j+1));
-            strcpy(dirname, (char*)(name+j+1));
-            printf("DIR:%s\n",dirname);
-            name[j+1]=0;
-            printf("BASE:%s\n",name);
-        }else{
-            assert(false);
-        }
-        ++i;
-    }*/
     return 0;
 }
