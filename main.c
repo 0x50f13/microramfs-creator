@@ -155,7 +155,7 @@ int main(int argc, const char * argv[]) {
     }
     chdir(argv[1]);
     printf("{");
-    listdir("./ramfs");
+    listdir("./");
     printf("}\nTotal size: %llu bytes\nFiles count: %llu\n Dirs count:%llu\n",gsz,files,dirs);
     return 0;
 }
